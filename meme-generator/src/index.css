@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&display=swap');
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+}
+body { font-family: 'Karla', sans-serif; }
+.header {
+    background: linear-gradient(90deg, #287c96 1.18%, #26a2d3 100%); color: #fff;
+    display: flex; align-items: center;
+    padding: 1rem;
+}
+.header img { width: 80px; filter: brightness(0) invert(1); }
+.header .large {
+    margin-right: auto; padding: 1rem;
+    font-size: 2rem; font-weight: 700;
+}
+.header p { font-size: 1.25rem; font-weight: 500; }
+main { padding: 1.5rem; }
+.form {
+    display: grid;
+    grid-template: 40px 40px / 1fr 1fr;
+    gap: 1rem; padding: 2rem;
+}
+.form__input { 
+    padding: 1.5rem; font-size: 1rem; font-family: 'Karla', sans-serif;
+    border-radius: 5px; border: 1px solid #ccc;
+}
+.form__btn {
+    margin: 1rem 0; height: 70px;
+    background: #287c96; color: #fff;
+    border: none; border-radius: 5px; cursor: pointer;
+    grid-column: span 2;
+    font-size: 1.2rem; font-weight: 600;
+    font-family: 'Karla', sans-serif;
+}
+.form__btn:hover { background: #26a2d3; }
