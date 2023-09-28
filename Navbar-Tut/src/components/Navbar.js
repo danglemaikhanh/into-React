@@ -2,6 +2,7 @@ import React from "react";
 import { FaBars, FaTimes } from "react-icons/fa"
 import '../components/navbar.css';
 import Logo from "../images/logo.png"
+
 export default function Navbar() {
     return (
         <nav className="navbar">
@@ -15,7 +16,7 @@ export default function Navbar() {
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div className="navbar__hamburger">
-                <FaBars size={30} style={{color: '#65e1e9'}}/>
+                <FaBars size={30} style={{ color: '#65e1e9' }} />
             </div>
         </nav>
     )

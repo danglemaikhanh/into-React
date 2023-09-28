@@ -11,12 +11,8 @@
   --white: #f8f8f8;
   --lightgrey: #91a2b5;
 }
-ul {
-  list-style: none;
-}
-a {
-  text-decoration: none;
-}
+ul { list-style: none; }
+a { text-decoration: none; }
 body {
   font-family: 'Montserrat', sans-serif;
   background: var(--lightgrey);
