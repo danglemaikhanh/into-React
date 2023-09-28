@@ -1,5 +1,5 @@
 import React from "react";
-import { FaBars, FaTimes } from "react-icons/fa"
+import { FaBars } from "react-icons/fa"
 import '../components/navbar.css';
 import Logo from "../images/logo.png"
 
