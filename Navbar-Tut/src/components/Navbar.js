@@ -15,7 +15,7 @@ export default function Navbar() {
             <div className="navbar__logo">
                 <img src={Logo} alt="logo" />
             </div>
-            <ul className={menuClick ? "navbar__list active": "navbar__list"}>
+            <ul className={menuClick ? "navbar__list active" : "navbar__list"}>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#fqa">FQA</a></li>

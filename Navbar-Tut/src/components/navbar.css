@@ -11,7 +11,6 @@
 .navbar__list li a { color: var(--primary); font-size: 1.5rem; }
 .navbar__list li a:hover { color: var(--secondary); }
 .navbar__hamburger { display: none; cursor: pointer; }
-
 @media screen and (max-width: 940px) {
     .navbar__list {
         position: fixed;
