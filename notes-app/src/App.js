@@ -1,8 +1,6 @@
 import React from "react"
 import Sidebar from "./components/Sidebar"
 import Editor from "./components/Editor"
-// eslint-disable-next-line
-import { data } from "./data"
 import Split from "react-split"
 import { nanoid } from "nanoid"
 
@@ -17,8 +15,9 @@ import { nanoid } from "nanoid"
 export default function App() {
     const [notes, setNotes] = React.useState(() => JSON.parse(localStorage.getItem("notes") || [])) // 2+3.
     const [currentNoteId, setCurrentNoteId] = React.useState(
-        (notes[0] && notes[0].id) || ""
+        (notes[0]?.id) || ""
     )
+    const currentNode = notes.find(note => note.id === currentNoteId) || notes[0]
 
     // 1.
     React.useEffect(() => {
@@ -35,17 +34,41 @@ export default function App() {
     }
 
     function updateNote(text) {
-        setNotes(oldNotes => oldNotes.map(oldNote => {
+        // This does not rearrange the notes
+        /* setNotes(oldNotes => oldNotes.map(oldNote => {
             return oldNote.id === currentNoteId
                 ? { ...oldNote, body: text }
                 : oldNote
-        }))
+        })) */
+        // Try to rearrange the most recently-modified
+        // not to be at the top of the list
+        setNotes(oldNotes => {
+            const newArr = []
+            for (let i = 0; i < oldNotes.length; i++) {
+                const oldNote = oldNotes[i]
+                if (oldNote.id === currentNoteId) {
+                    newArr.unshift({ ...oldNote, body: text })
+                }
+                else {
+                    newArr.push(oldNote)
+                }
+            }
+            return newArr
+        })
     }
 
-    function findCurrentNote() {
-        return notes.find(note => {
-            return note.id === currentNoteId
-        }) || notes[0]
+    /**
+     * 1. What array method can be used to return a new
+     *    array that has filtered out an item based 
+     *    on a condition?
+     * 2. Notice the parameters being based to the function
+     *    and think about how both of those parameters
+     *    can be passed in during the onClick event handler
+     */
+
+    function deleteNote(event, noteId) {
+        event.stopPropagation()
+        setNotes(oldNotes => oldNotes.filter(note => note.id !== noteId))
     }
 
     return (
@@ -60,15 +83,16 @@ export default function App() {
                     >
                         <Sidebar
                             notes={notes}
-                            currentNote={findCurrentNote()}
+                            currentNote={currentNode}
                             setCurrentNoteId={setCurrentNoteId}
                             newNote={createNewNote}
+                            deleteNote={deleteNote}
                         />
                         {
                             currentNoteId &&
                             notes.length > 0 &&
                             <Editor
-                                currentNote={findCurrentNote()}
+                                currentNote={currentNode}
                                 updateNote={updateNote}
                             />
                         }
