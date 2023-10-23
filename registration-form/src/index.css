@@ -5,9 +5,51 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  background-image: linear-gradient(to right, #b6fbff, #83a4d4);
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+code { font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; }
+.container {
+  display: flex;
+  flex-direction: column; height: 450px;
+  margin: auto; margin-top: 200px;
+  max-width: 600px; border-radius: 20px;
+  background-color: #fff; padding-bottom: 30px;
 }
+.header {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 9px;
+  width: 100%; margin-top: 30px;
+}
+.header-title { color: #0099f7; font-size: 50px; font-weight: bold; }
+.header-underline { 
+  width: 60px; height: 5px;
+  background: #0099f7; border-radius: 9px;
+}
+.wrapper {
+  display: flex; flex-direction: column;
+  margin-top: 35px; gap: 25px; align-items: center;
+}
+.input { position:relative; }
+.input-form { 
+  width: 400px; height: 50px; 
+  padding-left: 2.2rem; background-color: rgb(229, 243, 250);
+  font-size: 18px; border: none;
+}
+.input-icon {
+  height: 1.5rem; width: 1.5rem;
+  padding: 3px; position: absolute;
+  box-sizing:border-box; transform: translateY(-50%);
+  top:50%; left:4px; color: #797979;
+}
+.forgot-pw { color: #797979; font-size: 15px; }
+.forgot-pw span {color: #0099f7; cursor: pointer;}
+.submit-container { display: flex; gap: 30px}  
+.submit {
+  border: none; width: 200px; height: 60px; 
+  border-radius: 10px; font-size: 19px; 
+  font-weight: bold; color: #fff; cursor: pointer;
+}
+.signup {background-color: #ff6e7f;} .signup:hover { background-color: #e05666;}
+.login {background-color: #56b7f3;} .login:hover {background-color: #0099f7;}
+.gray { background-color: #eaeaea; color: #676767;}
